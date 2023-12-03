@@ -20,7 +20,7 @@ router.post("/deploy", async (ctx, next) => {
 
 app.use(router.routes()).use(router.allowedMethods());
 
-app.listen(3000, () => {
+app.listen(process.env.APP_PORT, () => {
   initProject();
-  console.log("Service started successfully: ", 3000);
+  console.log("Service started successfully: ", process.env.APP_PORT);
 });
