@@ -1,0 +1,20 @@
+name: Trigger API on Tag
+
+on:
+  push:
+    tags:
+      - '*'
+
+jobs:
+  trigger-api:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Trigger API
+      run: |
+        curl -X POST http://8.138.57.92 \
+        -H "Content-Type: application/json" \
+        -d '{"tag": "${{ github.ref }}"}'
