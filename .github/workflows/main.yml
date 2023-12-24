@@ -15,6 +15,6 @@ jobs:
 
     - name: Trigger API
       run: |
-        curl -X POST http://8.138.57.92/publish \
+        curl -X POST http://8.138.57.92:3033/publish \
         -H "Content-Type: application/json" \
         -d '{"tag": "${{ github.ref }}"}'
